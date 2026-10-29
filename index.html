@@ -1,16 +1,41 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Visualization Project</title>
-    <link rel="stylesheet" href="style.css">
 
-    <!-- Add any external javascript libraries here with a <script> tag -->
-    
+    <title>Calendar</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
 </head>
+
 <body>
-    
+
+    <div id="main-Container">
+        <div id="Left-Container">
+            <h1>Calendar</h1>
+            <!-- search bar here -->
+            <input>
+            <div id="calendar"></div>
+            <!-- <p id="output">Select a date</p> -->
+        </div>
+        <div id="Right-Container">
+            <h2>Image Title</h2>
+            <img src="" alt="IMG HERE">
+            <p>by author</p>
+            <br>
+            <p>Explanation</p>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="script.js"></script>
+
 </body>
+
 </html>

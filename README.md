@@ -21,7 +21,7 @@
 
 - List the technologies and tools used in the project:
     - **Languages**: HTML, CSS, JavaScript
-    - **Libraries**: (e.g., GSAP for animations)
+    - **Libraries**: (e.g., GSAP for animations) https://flatpickr.js.org/
     - **APIs**: Public APIs where the data set comes from
     - **Other**: Figma for design, Adobe Illustrator for illustrations, OpenAI for A.I. generated assets, etc.
 

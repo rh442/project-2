@@ -31,6 +31,7 @@ body {
 }
 
 /* Calendar */
+/* To change color you must add !Important after the color */
 #calendar {
     display: flex;
     justify-content: center;
@@ -40,4 +41,24 @@ body {
 .flatpickr-calendar.inline {
     transform: scale(1.7);
     transform-origin: top center;
+}
+
+.flatpickr-calendar {
+    background-color: black !important;
+}
+
+.flatpickr-month {
+    color: white !important;
+    background-color: blueviolet !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.flatpickr-day.selected {
+    background-color: #ccc !important;
+    border-color: none !important;
+}
+
+#APOD {
+    width: 40vw;
 }

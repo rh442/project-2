@@ -50,14 +50,14 @@ daySelect.value = todayDay;
 monthSelect.addEventListener("change", function () {
     fillDays(monthSelect.value);
 });
-
-
+const maxDateStr = "2025-10-31";
+const safeToday = todayStr > maxDateStr ? maxDateStr : todayStr;
 // Create the calendar 
 const calendar = flatpickr("#calendar", {
     inline: true,
-    defaultDate:todayStr,
+    defaultDate:safeToday,
     minDate: "2025-01-01",
-    maxDate: "2025-12-31",
+    maxDate: maxDateStr,
 
     // When the user clicks a day on the calendar,
     // update the two dropdowns to match.
@@ -104,8 +104,4 @@ async function getAPOD(dateString) {
         console.error("APOD failed:", err);
     }
 }
-const initialDate = calendar.selectedDates[0]
-    ? formatDate(calendar.selectedDates[0])
-    : "2025-01-01";
-
-getAPOD(initialDate);
+calendar.setDate(safeToday, true);

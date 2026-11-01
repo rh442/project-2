@@ -10,18 +10,9 @@ let APOD_IMG = document.getElementById('APOD')
 let Author = document.getElementById('Author')
 let Description = document.getElementById('Description')
 
-// When the month changes, we need to change how many days are in the list.
-//Work out today's date
-const today = new Date();
 
-function formatDate(d) {
-    const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, "0");
-    const day = String(d.getDate()).padStart(2, "0");
-    return `${y}-${m}-${day}`;
-}
 
-const todayStr = formatDate(today); 
+const startDate = "2025-01-01";
 
 //  Fill the day dropdown 
 function fillDays(month) {
@@ -38,26 +29,23 @@ function fillDays(month) {
 }
 
 // Start dropdowns on today 
-const todayParts = todayStr.split("-");
+const todayParts = startDate.split("-");
 const todayMonth = todayParts[1];
+fillDays(todayParts[1]);
 const todayDay   = todayParts[2];
 
-monthSelect.value = todayMonth;
-fillDays(todayMonth);
-daySelect.value = todayDay;
 
 // Refill days whenever the user picks a new month
 monthSelect.addEventListener("change", function () {
     fillDays(monthSelect.value);
 });
-const maxDateStr = "2025-10-31";
-const safeToday = todayStr > maxDateStr ? maxDateStr : todayStr;
+
 // Create the calendar 
 const calendar = flatpickr("#calendar", {
     inline: true,
-    defaultDate:safeToday,
+    defaultDate:startDate,
     minDate: "2025-01-01",
-    maxDate: maxDateStr,
+    maxDate: "2025-12-31",
 
     // When the user clicks a day on the calendar,
     // update the two dropdowns to match.
@@ -104,4 +92,4 @@ async function getAPOD(dateString) {
         console.error("APOD failed:", err);
     }
 }
-calendar.setDate(safeToday, true);
+calendar.setDate(startDate, true);

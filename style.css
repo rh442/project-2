@@ -60,5 +60,85 @@ body {
 }
 
 #APOD {
-    width: 40vw;
+    width: 500px;        
+    max-width: 100%;     
+    height: 500px;        
+    object-fit: cover;  
+}
+/* Medium screens*/
+@media (max-width: 1023px) {
+
+    #Left-Container,
+    #Right-Container {
+        width: 50%;               /* keep two columns */
+        padding: 20px;            /* less padding */
+    }
+
+    /* Calendar: reduce the scale so it fits */
+    .flatpickr-calendar.inline {
+        transform: scale(1.2);
+        transform-origin: top center;
+    }
+
+    /* Image: fluid size instead of fixed 500px */
+    #APOD {
+        width: 100%;
+        height: 350px;            /* shorter box */
+    }
+
+    #picker-bar {
+        font-size: 14px;
+    }
+}
+
+/* Small screens*/
+@media (max-width: 599px) {
+
+    /* Stack the columns vertically */
+    #main-Container {
+        flex-direction: column;
+    }
+
+    #Left-Container,
+    #Right-Container {
+        width: 100%;             
+        padding: 15px;
+        border-right: none;     
+    }
+
+    /* Add a divider between stacked sections instead */
+    #Left-Container {
+        border-bottom: 1px solid #ccc;
+    }
+
+    /* Calendar: no scale — it fits naturally */
+    .flatpickr-calendar.inline {
+        transform: scale(1);
+    }
+
+    /* Image: full width, shorter */
+    #APOD {
+        width: 100%;
+        height: 250px;
+    }
+
+    /* Picker: stack vertically if needed */
+    #picker-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #picker-bar select,
+    #picker-bar button {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
 }

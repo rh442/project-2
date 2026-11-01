@@ -9,8 +9,21 @@ let Title = document.getElementById('Title')
 let APOD_IMG = document.getElementById('APOD')
 let Author = document.getElementById('Author')
 let Description = document.getElementById('Description')
-//  Fill the day dropdown 
+
 // When the month changes, we need to change how many days are in the list.
+//Work out today's date
+const today = new Date();
+
+function formatDate(d) {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+}
+
+const todayStr = formatDate(today); 
+
+//  Fill the day dropdown 
 function fillDays(month) {
     daySelect.innerHTML = "";    // clear old days
 
@@ -24,8 +37,14 @@ function fillDays(month) {
     }
 }
 
-// Fill days once when the page loads
-fillDays(monthSelect.value);
+// Start dropdowns on today 
+const todayParts = todayStr.split("-");
+const todayMonth = todayParts[1];
+const todayDay   = todayParts[2];
+
+monthSelect.value = todayMonth;
+fillDays(todayMonth);
+daySelect.value = todayDay;
 
 // Refill days whenever the user picks a new month
 monthSelect.addEventListener("change", function () {
@@ -36,7 +55,7 @@ monthSelect.addEventListener("change", function () {
 // Create the calendar 
 const calendar = flatpickr("#calendar", {
     inline: true,
-    defaultDate: "2025-01-01",
+    defaultDate:todayStr,
     minDate: "2025-01-01",
     maxDate: "2025-12-31",
 
@@ -66,16 +85,27 @@ goBtn.addEventListener("click", function () {
 //API fetcher
 async function getAPOD(dateString) {
     // "2025-01-02" -> "250102"
-    const apiDate = dateString.slice(2).replaceAll("-", "");
-
-    const response = await fetch(
+    try {
+        const apiDate = dateString.slice(2).replaceAll("-", "");
+        console.log("Fetching APOD for:", dateString, "→", apiDate);
+    
+        const response = await fetch(
         `https://science.nasa.gov/wp-json/wp/v2/apod-basic/${apiDate}`
     );
-    let APOD = await response.json();
+    
+    const APOD = await response.json();
     console.log(APOD)
     //Changes elements data to fetched Data
     Title.innerText = APOD.title
     APOD_IMG.src = APOD.hdurl
     Author.innerHTML = APOD.credit || APOD.copyright || "NASA";
     Description.innerHTML = APOD.explanation;
+    } catch (err) {
+        console.error("APOD failed:", err);
+    }
 }
+const initialDate = calendar.selectedDates[0]
+    ? formatDate(calendar.selectedDates[0])
+    : "2025-01-01";
+
+getAPOD(initialDate);

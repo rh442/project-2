@@ -5,6 +5,8 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
+    background-color: hwb(215 88% 4%); 
+    color: hsl(269, 48%, 35%);
 }
 
 #main-Container {
@@ -28,6 +30,41 @@ body {
     width: 50%;
     padding: 30px;
     text-align: center;
+
+    display: grid;
+    grid-template-rows: auto auto auto auto; 
+    justify-items: center;     /* horizontal centering*/
+    align-content: center;   /* vertical centering */
+    gap: 10px; 
+}
+/*                                         
+   Picker bar (month / day / go)
+ */
+#picker-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#picker-bar select,
+#picker-bar button {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+#picker-bar button {
+    cursor: pointer;
+    background: #4a90e2;
+    color: white;
+    border: none;
+}
+
+#picker-bar button:hover {
+    background: #357ab8;
 }
 
 /* Calendar */
@@ -44,26 +81,29 @@ body {
 }
 
 .flatpickr-calendar {
-    background-color: black !important;
+     background-color: hsl(240, 33%, 76%) !important;
 }
 
 .flatpickr-month {
-    color: white !important;
-    background-color: blueviolet !important;
+    color: hsl(0, 31%, 6%) !important;
+    background-color: #9545e1 !important;
     width: 100% !important;
     margin: 0 !important;
 }
 
 .flatpickr-day.selected {
-    background-color: #ccc !important;
-    border-color: none !important;
+    background-color: lch(34.89% 99.12 301.79) !important;
+    border-color: transparent !important;
 }
 
 #APOD {
     width: 500px;        
-    max-width: 100%;     
+    max-width: 80%;     
     height: 500px;        
-    object-fit: cover;  
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    background-color: lch(96.91% 1.77 19.16);
 }
 /* Medium screens*/
 @media (max-width: 1023px) {
@@ -77,12 +117,11 @@ body {
     /* Calendar: reduce the scale so it fits */
     .flatpickr-calendar.inline {
         transform: scale(1.2);
-        transform-origin: top center;
     }
 
     /* Image: fluid size instead of fixed 500px */
     #APOD {
-        width: 100%;
+        width: 80%;
         height: 350px;            /* shorter box */
     }
 
@@ -118,7 +157,7 @@ body {
 
     /* Image: full width, shorter */
     #APOD {
-        width: 100%;
+        width: 80%;
         height: 250px;
     }
 

@@ -70,6 +70,27 @@ goBtn.addEventListener("click", function () {
     calendar.setDate(chosenDate, true);  // true = also run onChange
 });
 
+
+// hide/show calendar 
+
+const toggleCalendarBtn = document.getElementById("toggle-calendar-btn");
+
+toggleCalendarBtn.addEventListener("click", function () {
+
+    const flatpickrCalendar = calendar.calendarContainer;
+
+    if (flatpickrCalendar.style.display === "none") {
+        flatpickrCalendar.style.display = "";
+        toggleCalendarBtn.textContent = "Hide Calendar";
+    } else {
+        flatpickrCalendar.style.display = "none";
+        toggleCalendarBtn.innerText = "Show Calendar";
+    }
+    
+});
+
+
+
 //API fetcher
 async function getAPOD(dateString) {
     // "2025-01-02" -> "250102"

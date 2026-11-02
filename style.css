@@ -105,6 +105,23 @@ body {
     border-radius: 8px;
     background-color: lch(96.91% 1.77 19.16);
 }
+
+#toggle-calendar-btn {
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    background-color: #3e0a79;
+    color: white;
+    cursor: pointer;
+}
+
+#calendar.hidden {
+    display: none;
+}
+
+
 /* Medium screens*/
 @media (max-width: 1023px) {
 

@@ -3,10 +3,10 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Iceland", sans-serif;
     margin: 0;
     background-color: hwb(0 0% 100%); 
-    color: hsl(269, 45%, 50%);
+     color: hsl(269, 42%, 79%);
 
     background-image: url("images/background.jpg");
     background-size: cover;
@@ -16,15 +16,18 @@ body {
 }
 #Title,
 #Author {
-    color: hsl(269, 68%, 60%);
-    background-color: hwb(244 2% 82% / 0.748);
+    color: hsl(266, 59%, 89%);
+    font-family: "Bruno Ace SC", sans-serif;
+    background: linear-gradient(135deg, #c86bf0 0%, oklch(54.878% 0.22072 270.418),#3ecbf9  100%);
+    box-shadow: 0 6px 18px hsla(267, 53%, 51%, 0.732);
     padding: 10px 20px;
     border-radius: 8px;
 }
 
 #Description {
-    color: hsl(0, 3%, 73%);
-    background-color: hwb(243 2% 83% / 0.596);
+    color: hsl(0, 58%, 96%);
+    background: linear-gradient(135deg, #c86bf0 0%, oklch(37.186% 0.21125 266), #3ecbf9 100%);
+    box-shadow: 0 6px 18px hsla(267, 53%, 51%, 0.732);
     padding: 20px;
     border-radius: 8px;
     line-height: 1.6;
@@ -33,17 +36,14 @@ body {
 }
 
 a {
-    color: hsl(269, 45%, 50%);
+    color: lab(87.89% -50.5 -6.43);
     text-decoration: none;
+     font-family: "Bruno Ace SC", sans-serif;
 }
 
 a:hover {
-    color: hsl(269, 100%, 79%);
+    color: hwb(343 33% 7%);
     text-decoration: underline;
-}
-
-a:visited {
-    color: hsl(205, 76%, 60%);
 }
 
 #main-Container {
@@ -88,22 +88,13 @@ a:visited {
 }
 #picker-bar select,
 #picker-bar button {
+    font-family: "Bruno Ace SC", sans-serif;
     padding: 8px 12px;
     font-size: 16px;
     border-radius: 6px;
     border: 1px solid #ccc;
 }
 
-#picker-bar button {
-    cursor: pointer;
-    background: #4a90e2;
-    color: white;
-    border: none;
-}
-
-#picker-bar button:hover {
-    background: #357ab8;
-}
 
 /* Calendar */
 /* To change color you must add !Important after the color */
@@ -119,22 +110,21 @@ a:visited {
 }
 
 .flatpickr-calendar {
-     background-color: hsl(240, 33%, 76%) !important;
+      background-color: hsl(240, 54%, 80%) !important;
 }
 
 .flatpickr-month {
     color: hsl(0, 31%, 6%) !important;
-    background-color: #9545e1 !important;
+    background: linear-gradient(135deg, #c86bf0 0%, oklch(54.878% 0.22072 270.418) 100%) !important;
+    box-shadow: 0 6px 18px hsla(267, 53%, 51%, 0.732);
     width: 100% !important;
     margin: 0 !important;
 }
 
 .flatpickr-day.selected {
-    background-color: lch(34.89% 99.12 301.79) !important;
+     background: linear-gradient(135deg, #c86bf0 0%, oklab(56.69499999999999% -0.0019 -0.18232) 100%) !important;
     border-color: transparent !important;
 }
-
-
 
 #APOD {
     width: 500px;        
@@ -146,21 +136,53 @@ a:visited {
     background-color: lch(96.91% 1.77 19.16);
 }
 
+/* button style  */
+#go-btn,
+#toggle-calendar-btn {
+    font-family: "Bruno Ace SC", sans-serif;
+    padding: 10px 22px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    /* Color — gradient */
+    background: linear-gradient(135deg, #b44ae2 0%, hsl(293, 53%, 51%) 100%);
+    color: #ffffff;
+
+    /* Depth */
+    box-shadow: 0 4px 12px hsla(267, 53%, 51%, 0.35);
+
+    /* Smooth animation */
+    transition: all 0.25s ease;
+}
+
+/* Hover — lift and brighten */
+#go-btn:hover,
+#toggle-calendar-btn:hover {
+    background: linear-gradient(135deg, #c86bf0 0%, #4985e4 100%);
+    box-shadow: 0 6px 18px rgba(123, 63, 196, 0.949);
+    transform: translateY(-2px);
+}
+
+/* Click — push down */
+#go-btn:active,
+#toggle-calendar-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px #6311c8;
+}
+
+/* Toggle button keeps its bottom spacing */
 #toggle-calendar-btn {
     margin-bottom: 20px;
-    padding: 8px 12px;
-    font-size: 16px;
-    border-radius: 6px;
-    border: none;
-    background-color: #3e0a79;
-    color: white;
-    cursor: pointer;
 }
+
 
 #calendar.hidden {
     display: none;
 }
-
 
 /* Medium screens*/
 @media (max-width: 1023px) {

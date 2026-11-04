@@ -31,7 +31,7 @@
     - **Other**: Figma for design, Adobe Illustrator for illustrations, OpenAI for A.I. generated assets, etc.
 
 ## Future Enhancements
-    - Centering of Image + description when hiding calendar
+- Centering of Image + description when hiding calendar
 
 ## Credits
 

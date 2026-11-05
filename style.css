@@ -138,7 +138,8 @@ a:hover {
 
 /* button style  */
 #go-btn,
-#toggle-calendar-btn {
+#toggle-calendar-btn,
+#random-btn {
     font-family: "Bruno Ace SC", sans-serif;
     padding: 10px 22px;
     font-size: 16px;

@@ -1,3 +1,4 @@
+
 //API-KEY: qkFJTDmLGWP6DN7f6cJB6DbR8Ck9CBpbdBpgFrcn
 //  Grab the elements we need
 const year = 2025;
@@ -9,8 +10,6 @@ let Title = document.getElementById('Title')
 let APOD_IMG = document.getElementById('APOD')
 let Author = document.getElementById('Author')
 let Description = document.getElementById('Description')
-
-
 
 const startDate = "2025-01-01";
 
@@ -36,7 +35,7 @@ monthSelect.addEventListener("change", function () {
 // Create the calendar 
 const calendar = flatpickr("#calendar", {
     inline: true,
-    defaultDate:startDate,
+    defaultDate: startDate,
     minDate: "2025-01-01",
     maxDate: "2025-12-31",
 
@@ -56,13 +55,11 @@ const calendar = flatpickr("#calendar", {
     }
 });
 
-
 // jump calendar to chosen month/day 
 goBtn.addEventListener("click", function () {
     const chosenDate = year + "-" + monthSelect.value + "-" + daySelect.value;
     calendar.setDate(chosenDate, true);  // true = also run onChange
 });
-
 
 // hide/show calendar 
 
@@ -82,6 +79,20 @@ toggleCalendarBtn.addEventListener("click", function () {
     
 });
 
+// Random date button
+const randomBtn = document.getElementById("random-btn");
+
+randomBtn.addEventListener("click", function () {
+    const randomMonth = Math.floor(Math.random() * 12) + 1;
+    const daysInMonth = new Date(year, randomMonth, 0).getDate();
+    const randomDay = Math.floor(Math.random() * daysInMonth) + 1;
+
+    const randomDate = year + "-" +
+        String(randomMonth).padStart(2, "0") + "-" +
+        String(randomDay).padStart(2, "0");
+
+    calendar.setDate(randomDate, true);
+});
 
 
 //API fetcher

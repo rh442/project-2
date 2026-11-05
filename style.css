@@ -25,6 +25,16 @@ body {
     border-radius: 8px;
 }
 
+#Details {
+    font-size: 10px;
+    color: hsl(266, 59%, 89%);
+    font-family: "Bruno Ace SC", sans-serif;
+    background: linear-gradient(135deg, #c86bf0 0%, oklch(54.878% 0.22072 270.418), #3ecbf9 100%);
+    box-shadow: 0 6px 18px hsla(267, 53%, 51%, 0.732);
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
 #Description {
     color: hsl(0, 58%, 96%);
     background: linear-gradient(135deg, #c86bf0 0%, oklch(37.186% 0.21125 266), #3ecbf9 100%);
@@ -113,6 +123,7 @@ a:hover {
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
+    flex-direction: row;
 }
 
 #picker-bar select,

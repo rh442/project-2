@@ -76,7 +76,7 @@ toggleCalendarBtn.addEventListener("click", function () {
         flatpickrCalendar.style.display = "none";
         toggleCalendarBtn.innerText = "Show Calendar";
     }
-    
+
 });
 
 // Random date button
@@ -101,20 +101,38 @@ async function getAPOD(dateString) {
     try {
         const apiDate = dateString.slice(2).replaceAll("-", "");
         console.log("Fetching APOD for:", dateString, "→", apiDate);
-    
+
         const response = await fetch(
-        `https://science.nasa.gov/wp-json/wp/v2/apod-basic/${apiDate}`
-    );
-    
-    const APOD = await response.json();
-    console.log(APOD)
-    //Changes elements data to fetched Data
-    Title.innerText = APOD.title
-    APOD_IMG.src = APOD.hdurl
-    Author.innerHTML = APOD.credit || APOD.copyright || "NASA";
-    Description.innerHTML = APOD.explanation;
+            `https://science.nasa.gov/wp-json/wp/v2/apod-basic/${apiDate}`
+        );
+
+        const APOD = await response.json();
+        console.log(APOD)
+        //Changes elements data to fetched Data
+        Title.innerText = APOD.title
+        APOD_IMG.src = APOD.hdurl
+        Author.innerHTML = APOD.credit || APOD.copyright || "NASA";
+        Description.innerHTML = APOD.explanation;
     } catch (err) {
         console.error("APOD failed:", err);
     }
 }
 calendar.setDate(startDate, true);
+
+
+let img_toggle = false
+
+function toggle_img() {
+    if (!img_toggle) {
+        APOD_IMG.style.display = 'none'
+        Description.style.display = 'block'
+    }
+    if (img_toggle) {
+        APOD_IMG.style.display = 'block'
+        Description.style.display = 'none'
+    }
+    img_toggle = !img_toggle
+
+}
+Description.addEventListener('click', toggle_img)
+APOD_IMG.addEventListener('click', toggle_img)

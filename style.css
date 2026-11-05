@@ -5,8 +5,8 @@
 body {
     font-family: "Iceland", sans-serif;
     margin: 0;
-    background-color: hwb(0 0% 100%); 
-     color: hsl(269, 42%, 79%);
+    background-color: hwb(0 0% 100%);
+    color: hsl(269, 42%, 79%);
 
     background-image: url("images/background.jpg");
     background-size: cover;
@@ -14,11 +14,12 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
 #Title,
 #Author {
     color: hsl(266, 59%, 89%);
     font-family: "Bruno Ace SC", sans-serif;
-    background: linear-gradient(135deg, #c86bf0 0%, oklch(54.878% 0.22072 270.418),#3ecbf9  100%);
+    background: linear-gradient(135deg, #c86bf0 0%, oklch(54.878% 0.22072 270.418), #3ecbf9 100%);
     box-shadow: 0 6px 18px hsla(267, 53%, 51%, 0.732);
     padding: 10px 20px;
     border-radius: 8px;
@@ -33,17 +34,37 @@ body {
     line-height: 1.6;
     max-width: 800px;
     text-align: left;
+    display: none;
+    cursor: pointer;
+}
+
+#Description2 {
+    color: hsl(0, 58%, 96%);
+    background: linear-gradient(135deg, #c86bf0 0%, oklch(37.186% 0.21125 266), #3ecbf9 100%);
+    box-shadow: 0 6px 18px hsla(267, 53%, 51%, 0.732);
+    padding: 20px;
+    border-radius: 8px;
+    line-height: 1.6;
+    max-width: 800px;
+    text-align: left;
+    display: none;
+    cursor: pointer;
 }
 
 a {
     color: lab(87.89% -50.5 -6.43);
     text-decoration: none;
-     font-family: "Bruno Ace SC", sans-serif;
+    font-family: "Bruno Ace SC", sans-serif;
 }
 
 a:hover {
     color: hwb(343 33% 7%);
     text-decoration: underline;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
 }
 
 #main-Container {
@@ -69,12 +90,19 @@ a:hover {
     text-align: center;
 
     display: grid;
-    grid-template-rows: auto auto auto auto; 
-    justify-items: center;     /* horizontal centering*/
-    align-content: center;   /* vertical centering */
-    gap: 10px; 
-    
+    grid-template-rows: auto auto auto auto;
+    justify-items: center;
+    /* horizontal centering*/
+    align-content: center;
+    /* vertical centering */
+    gap: 10px;
+
 }
+
+#Right-Container Img {
+    height: 65vh;
+}
+
 /*                                         
    Picker bar (month / day / go)
  */
@@ -86,6 +114,7 @@ a:hover {
     flex-wrap: wrap;
     justify-content: center;
 }
+
 #picker-bar select,
 #picker-bar button {
     font-family: "Bruno Ace SC", sans-serif;
@@ -95,6 +124,10 @@ a:hover {
     border: 1px solid #ccc;
 }
 
+/* Hide extra week */
+.flatpickr-day.nextMonthDay:nth-last-child(-n+7) {
+    display: none;
+}
 
 /* Calendar */
 /* To change color you must add !Important after the color */
@@ -110,7 +143,7 @@ a:hover {
 }
 
 .flatpickr-calendar {
-      background-color: hsl(240, 54%, 80%) !important;
+    background-color: hsl(240, 54%, 80%) !important;
 }
 
 .flatpickr-month {
@@ -122,18 +155,31 @@ a:hover {
 }
 
 .flatpickr-day.selected {
-     background: linear-gradient(135deg, #c86bf0 0%, oklab(56.69499999999999% -0.0019 -0.18232) 100%) !important;
+    background: linear-gradient(135deg, #c86bf0 0%, oklab(56.69499999999999% -0.0019 -0.18232) 100%) !important;
     border-color: transparent !important;
 }
 
 #APOD {
-    width: 500px;        
-    max-width: 80%;     
-    height: 500px;        
+    width: 500px;
+    max-width: 80%;
+    height: 500px;
     object-fit: cover;
     object-position: center;
     border-radius: 8px;
     background-color: lch(96.91% 1.77 19.16);
+    cursor: pointer;
+}
+
+#APOD2 {
+    width: 500px;
+    max-width: 80%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    background-color: lch(96.91% 1.77 19.16);
+    cursor: pointer;
+    display: none;
 }
 
 /* button style  */
@@ -163,7 +209,7 @@ a:hover {
 /* Hover — lift and brighten */
 #go-btn:hover,
 #toggle-calendar-btn:hover,
-#random-btn:hover{
+#random-btn:hover {
     background: linear-gradient(135deg, #c86bf0 0%, #4985e4 100%);
     box-shadow: 0 6px 18px rgba(123, 63, 196, 0.949);
     transform: translateY(-2px);
@@ -192,8 +238,10 @@ a:hover {
 
     #Left-Container,
     #Right-Container {
-        width: 50%;               /* keep two columns */
-        padding: 20px;            /* less padding */
+        width: 50%;
+        /* keep two columns */
+        padding: 20px;
+        /* less padding */
     }
 
     /* Calendar: reduce the scale so it fits */
@@ -204,7 +252,8 @@ a:hover {
     /* Image: fluid size instead of fixed 500px */
     #APOD {
         width: 80%;
-        height: 350px;            /* shorter box */
+        height: 350px;
+        /* shorter box */
     }
 
     #picker-bar {
@@ -220,11 +269,16 @@ a:hover {
         flex-direction: column;
     }
 
+    .button-container {
+        display: flex;
+        flex-direction: column;
+    }
+
     #Left-Container,
     #Right-Container {
-        width: 100%;             
+        width: 100%;
         padding: 15px;
-        border-right: none;     
+        border-right: none;
     }
 
     /* Add a divider between stacked sections instead */

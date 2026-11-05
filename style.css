@@ -162,7 +162,8 @@ a:hover {
 
 /* Hover — lift and brighten */
 #go-btn:hover,
-#toggle-calendar-btn:hover {
+#toggle-calendar-btn:hover,
+#random-btn:hover{
     background: linear-gradient(135deg, #c86bf0 0%, #4985e4 100%);
     box-shadow: 0 6px 18px rgba(123, 63, 196, 0.949);
     transform: translateY(-2px);
@@ -170,7 +171,8 @@ a:hover {
 
 /* Click — push down */
 #go-btn:active,
-#toggle-calendar-btn:active {
+#toggle-calendar-btn:active,
+#random-btn:active {
     transform: translateY(0);
     box-shadow: 0 2px 6px #6311c8;
 }

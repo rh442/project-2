@@ -28,13 +28,6 @@ function fillDays(month) {
     }
 }
 
-// Start dropdowns on today 
-const todayParts = startDate.split("-");
-const todayMonth = todayParts[1];
-fillDays(todayParts[1]);
-const todayDay   = todayParts[2];
-
-
 // Refill days whenever the user picks a new month
 monthSelect.addEventListener("change", function () {
     fillDays(monthSelect.value);

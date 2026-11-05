@@ -32,6 +32,7 @@
 
 ## Future Enhancements
 - Centering of Image + description when hiding calendar
+- add some loading animation to the page when the image and the information coming out.
 
 ## Credits
 
